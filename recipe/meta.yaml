@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: minpack.lm_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/minpack.lm_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/minpack.lm/minpack.lm_{{ version }}.tar.gz
@@ -15,8 +14,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 1005
-  skip: true  # [win32]
+  number: 1006
   rpaths:
     - lib/R/lib/
     - lib/
@@ -34,6 +32,7 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
+    - libblas
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
@@ -45,7 +44,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=minpack.lm
-  license: GPL-3
+  license: GPL-3.0-only
   summary: 'The nls.lm function provides an R interface to lmder and lmdif from the MINPACK library,
     for solving nonlinear least-squares problems by a modification of the Levenberg-Marquardt
     algorithm, with support for lower and upper parameter bounds.  The implementation
@@ -56,9 +55,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
