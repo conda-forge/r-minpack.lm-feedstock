@@ -1,4 +1,4 @@
-{% set version = "1.2-2" %}
+{% set version = "1.2-3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/minpack.lm_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/minpack.lm/minpack.lm_{{ version }}.tar.gz
-  sha256: c70956122528575433c57a5669e26f4f9b1e160b004f135a38658c2c2634df87
+  sha256: bfa702679f023b2c9a54b23172deb6e26cfa27addce4d2d6bd5e7d89e14feef0
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
